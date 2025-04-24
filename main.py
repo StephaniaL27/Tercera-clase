@@ -32,4 +32,13 @@ async def lanzar_dado(ctx):
     else:
         await ctx.send(f'Has sacado un {resultado}. ¡Sigue jugando!')
 
+@bot.command()
+async def generar_contraseña(ctx):
+    elements = "+-/*!&$#?=@<>abcdefghijklnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890"
+    password = ""
+
+    for i in range(8):
+        password += random.choice(elements)
+    await ctx.send(f"Tu contraseña es: {password}")
+
 bot.run('token')
